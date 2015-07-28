@@ -1,0 +1,49 @@
+function int, boolean func1(int p1) {
+	int h;
+	boolean c;
+	++h;
+
+	return c, h, c;
+}
+function int func2(int p1, int p2) {
+	int h;
+	boolean c;
+	++h;
+
+	return c;
+}
+
+Main()
+{
+	int a = 5.0, i, arr[5];
+	boolean b = true;
+	float c;
+
+	c = 2+a;		@~ Valid statement :: Type Coercion ~@
+	
+	a[2] = 1;
+	arr[7] = arr[2][9];
+
+	a = func2(p1 = 2);
+	func1(p1 = b);
+
+	a, b, c = arr[1:3], 1;
+
+	Point p;
+	Bot b1 := {p, 2, 2, true};
+
+	if (b && a) {
+		a = b1 + 4;
+	}
+	else if (c){
+		a = d;
+		++c;
+	}
+	else if (c+2) {
+		a = j+2;
+	}
+	else {
+		int a;
+	}
+}
+

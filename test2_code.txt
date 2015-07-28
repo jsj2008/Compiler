@@ -1,0 +1,21 @@
+int glob1 = 0;
+int glob2 = 9;
+Main()
+{
+	int a, b;
+	readi >> a;
+	
+	if(a < 13)
+	{
+	   int l;
+	   l = a+2;	
+	}
+	else if (a < 5)
+	{
+	   glob1 = glob1 + 1;
+	   glob1 = a+3;
+	}
+	else {
+	   glob2 = 2;
+	}
+}

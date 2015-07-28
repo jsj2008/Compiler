@@ -1,0 +1,194 @@
+﻿<program>                 -> <global_vars> <otherFunctions> <mainFunction>
+<mainFunction>                -> <stmts>
+<fn_stmts>		-> 	RBRACE
+<stmts>                         -> <stmt> <stmts> | RBRACE
+<stmt>                        -> <gen_stmt> | <condnal_stmt>
+<loop_stmts>                 -> <loop_stmt> <loop_stmts>  | RBRACE
+<loop_stmt>                -> <lp_stmt> | BREAK SEMI_CL | CONTINUE SEMI_CL
+<lp_stmt>                        -> <gen_stmt> | <loop_condnal_stmt>
+<global_vars>                 -> <global_assignment> <global_vars> | EPS
+<global_assignment>         -> <primitive_type> ID ASSIGN_OP <const_value> SEMI_CL
+
+
+<gen_stmt>                -> ID  <func_ass> | <other_stmt>
+<other_stmt>                -> <io_stmt> | <for_stmt> | <bot_stmt> | <unary_stmts> | <primitive_declaration_stmt>
+
+
+<func_ass> -> <array> <lefthandSide1> | <funcCall_stmt>
+
+
+<unary_stmts>        -> <prefix_op> ID <unary_stmt_more>
+<unary_stmt_more>    -> COMMA <prefix_op> ID <unary_stmt_more> | SEMI_CL
+
+
+
+
+
+
+
+
+<primitive_declaration_stmt>         -> <primitive_type> ID <assign_more>
+
+
+<assign_more>                -> ASSIGN_OP <expression> <assign_comma> | LSQUARE NUM RSQUARE <array2> | <assign_comma>
+<assign_comma>                -> COMMA ID <assign_more> | SEMI_CL
+
+
+<array2>                        -> ASSIGN_OP <curly_values> <assign_comma> | LSQUARE NUM RSQUARE <assign_2d> | <assign_comma>
+<assign_2d>                -> ASSIGN_OP <meta_curly>  <assign_comma> | <assign_comma>
+<curly_values>                -> LBRACE <values> RBRACE
+<meta_curly>                -> LBRACE <curly_values> <more_curliness>
+<more_curliness>        -> COMMA <curly_values> <more_curliness> | RBRACE
+
+
+
+
+<point_decl_stmt>         -> POINT ID <pv_rest>
+<pv_rest>                        -> SEMI_CL | COL_ASSIGN LBRACE <idNum> COMMA <idNum> RBRACE SEMI_CL
+
+
+<bot_decl_stmt>         -> BOT ID <bot_rest>
+<bot_rest>                -> SEMI_CL | COL_ASSIGN LBRACE ID COMMA <idNum> COMMA <idNum>  COMMA <idBool> RBRACE SEMI_CL
+
+
+
+
+<assign_operators>    -> ASSIGN_OP | PL_EQ
+                      
+
+
+
+
+<type>                        -> <primitive_type> | <bot_type>
+<type_list>                -> <type> <type_more> | VOID ID
+<type_more>                -> COMMA <type> <type_more> | ID
+<primitive_type>        -> INT | FLOAT |  BOOLEAN
+<bot_type>                -> POINT | BOT
+
+
+
+
+<assignment_stmt>          -> <var> <lefthandSide1>
+<lefthandSide1>                -> <assign_operators> <rightHandSide> | COMMA <var> <lefthandSideMultiple> | COL_ASSIGN LBRACE <bot_point1>
+<bot_point1>                 -> ID COMMA <idNum> <bot_or_point>  | NUM COMMA <idNum> RBRACE SEMI_CL
+
+
+<bot_or_point>      -> RBRACE SEMI_CL | COMMA <idNum> COMMA <idBool> RBRACE SEMI_CL                     
+<idNum>                        -> ID | NUM
+<lefthandSideMultiple> -> COMMA <var> <lefthandSideMultiple> | ASSIGN_OP <rightHandSide>
+<rightHandSide>                -> <expression> <rightHandSideMultiple>
+<rightHandSideMultiple> -> COMMA <expression> <rightHandSideMultiple> | SEMI_CL
+
+
+
+
+<var>                        -> ID <array>
+<array>                        -> LSQUARE <add_sub_expr> <brack_pair1> | EPS
+<brack_pair1>                -> RSQUARE <array_2d> | COLON <add_sub_expr> RSQUARE
+<array_2d>                -> EPS | LSQUARE <add_sub_expr> RSQUARE
+
+
+
+
+<values>                        -> <value> <values_more>
+<values_more>                -> COMMA <values> | EPS
+<value>                        ->  <const_value> | ID <value_rest>
+<value_rest>         -> <funcCall_inside_Value> | <array>
+<funcCall_inside_Value> -> LPARA <funcCall_inside_Value_rest>        
+<funcCall_inside_Value_rest>        ->   <arg_list> | RPARA
+
+
+<idBool>                        -> ID | <bool>
+<bool>               -> TRUE | FALSE
+<const_value>                -> NUM | RNUM | <bool>
+
+
+<loop_condnal_stmt>         -> IF LPARA <expression> RPARA LBRACE <loop_stmts> <loop_condnal_stmt_more>
+<loop_condnal_stmt_more>        -> ELSE <loop_condnal_stmt_even_more> | EPS
+<loop_condnal_stmt_even_more> -> <loop_condnal_stmt> | LBRACE <loop_stmts>
+
+
+
+
+<condnal_stmt>                 ->   IF LPARA <expression> RPARA LBRACE <stmts> <condnal_stmt_more>
+<condnal_stmt_more>        -> ELSE <condnal_stmt_even_more> | EPS
+<condnal_stmt_even_more> -> <condnal_stmt> | LBRACE <stmts>
+
+
+
+
+
+
+<expressions>                -> <expression> <more_expression>
+<more_expression>        -> COMMA <expression> <more_expression> | EPS
+
+
+
+
+<array_arithm_expr>        -> <arr_mul_div_expr> <array_arithm_expr'>
+<array_arithm_expr'>        ->        <sum_ops> <arr_mul_div_expr> <array_arithm_expr'> | EPS
+<arr_mul_div_expr>        -> <arr_un_expr> <arr_mul_div_expr'>
+<arr_mul_div_expr'>        ->        <mul_ops> <arr_un_expr> <arr_mul_div_expr'> | EPS
+<arr_un_expr>                -> <prefix_op> <arr_end>
+<arr_end>                        -> <idNum> | LPARA <array_arithm_expr> RPARA
+
+
+
+
+
+
+
+<expression>                 -> <and_expr> <expression'>
+<expression'>                -> LOG_OR <and_expr> <expression'> | EPS
+<and_expr>                -> <reln_expr> <and_expr'>
+<and_expr'>                -> LOG_AND <reln_expr> <and_expr'> | EPS
+<reln_expr>                -> <add_sub_expr> <reln_expr'>
+<reln_expr'>                -> <rel_op> <add_sub_expr> <reln_expr'> | EPS
+<rel_op>                        -> LT | GT | LOG_EQ | LTE | GTE
+<add_sub_expr>                -> <mul_div_expr> <add_sub_expr'>
+<add_sub_expr'>                -> <sum_ops> <mul_div_expr> <add_sub_expr'> | EPS
+<sum_ops>                        -> PLUS | MINUS
+<mul_div_expr>                -> <un_expr> <mul_div_expr'>
+<mul_div_expr'>                -> <mul_ops> <un_expr> <mul_div_expr'> | EPS
+<mul_ops>                        -> MULTIPLY | DIVIDE
+<un_expr>                        -> <prefix_op> <var> | <typecast>
+<prefix_op>                -> UNARY_INCR | UNARY_DECR
+<typecast>                -> <value> | LPARA <expression_more>
+<expression_more>        -> <expression> RPARA | <primitive_type> RPARA LPARA <expression> RPARA
+
+
+
+
+
+
+
+<arg_list>                ->  ID ASSIGN_OP <value> <arg_list_more2>
+<arg_list_more2>        ->  COMMA <arg_list> | RPARA
+
+
+
+
+<funcCall_stmt>                ->        LPARA <funcCall_stmt_rest>
+<funcCall_stmt_rest>        ->   <arg_list> SEMI_CL | RPARA SEMI_CL
+
+
+<otherFunctions>        ->        <function> <otherFunctions> | MAIN LPARA RPARA LBRACE
+<function>                ->        FUNCTION <type_list> LPARA <parameter_list> LBRACE <fn_stmts>
+<fn_stmts>                ->        <stmt> <fn_stmts> | RETURN <expressions> SEMI_CL RBRACE                               
+
+
+<parameter_list>        ->        <type> ID <parameter_list_more> | RPARA
+<parameter_list_more>->        COMMA <type> ID <parameter_list_more> | RPARA
+
+
+
+
+<io_stmt>                        -> READI INPOP ID SEMI_CL
+
+
+<bot_stmt>                -> ADDV ID COMMA ID SEMI_CL | FW ID COMMA <expression> SEMI_CL | RT ID SEMI_CL | <point_decl_stmt> | <bot_decl_stmt>
+
+
+<for_stmt>                 -> FOR LPARA <assignment_stmt> <expression> SEMI_CL <update_stmt> RPARA LBRACE <loop_stmts>
+<update_stmt>       ->  <assignment_stmt> | <unary_stmts>
+***

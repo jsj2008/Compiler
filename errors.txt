@@ -1,0 +1,22 @@
+ Line No. 6 :: Incorrect number of arguments returned, expected 2 return values, instead found 3 return values.
+ Line No. 13 :: Incorrect type of return of expression no. 1, expected type INT, instead found return type BOOLEAN.
+Line No. 18 :: Invalid value assigned to a. Expected type INT, instead found FLOAT.
+Line No. 24 :: Variable a referenced as an array is not an array variable.
+Line No. 25 :: Array out of bounds exception at dimension 1. Max size 5, received size 7.
+Line No. 25 :: Variable arr is an array of 1 dimensions, it is used as a 2 dimensional array.
+Line No 25 :: Can't use array arr in expressions 
+Line No. 25 :: Invalid assignment. Can't assign variable ( arr ) of type INT to type INT.
+Line No. 27 :: Incorrect number of parameters to function. Expected 2 arguments, received 1 arguments.
+Line No. 28 :: Incorrect type of value passed to parameter 0, expected type INT, instead found return type BOOLEAN.
+Line No. 30 :: Invalid assignment. Can't assign variable ( b ) of type BOOLEAN to type INT.
+Line No 36 :: Can't use bot, point type variable b1 in expression. Use := to assign bot and point.
+Line No. 36 :: Invalid assignment. Can't assign variable ( a ) of type INT to type INT.
+Line No. 39 :: Variable d referenced before declaration.
+Line No. 39 :: Invalid assignment. Can't assign variable ( a ) of type INT to type INT.
+Line No. 40 :: INCREMENT STATEMENT SUPPORTS ONLY INTEGER TYPE, INSTEAD FOUND TYPE FLOAT
+Line No. 43 :: Variable j referenced before declaration.
+Line No. 43 :: Invalid operands to PLUS, got operands of type INT and INT
+Line No. 43 :: Invalid assignment. Can't assign variable ( a ) of type INT to type INT.
+Line No. 46 :: Redeclaration of symbol: a, which is already declared in current scope.
+Line No. 42 :: Incorrect type of conditional expression, expected type BOOLEAN, instead found type FLOAT.
+Line No. 38 :: Incorrect type of conditional expression, expected type BOOLEAN, instead found type FLOAT.

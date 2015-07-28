@@ -1,0 +1,29 @@
+funcReturnNumberMismatch 					=> 			Incorrect Number of return values of a function 
+funcReturnTypeMismatch 						=>			Incorrect type of return value of a function  
+notAnArray 							=>			Variable used as an array not declared as an array
+incorrectArrayDimensions					=> 			1-d array used as a 2-d array
+arrayOutOfBounds						=>			Array out of bounds
+funcParameterNumMismatch					=>			Number of parameters in function call mismatch 		
+funcParamTypeMismatch						=>			Type of parameters in function call mismatch
+conditionalTypeMismatch						=>			Expression in conditional statement not of type BOOLEAN  		
+loopTypeMismatch						=> 			Expression in loop statement not of type BOOLEAN  		
+operandTypeMismatch						=>			
+botOrPointMisused						=>			
+invalidParamName 						=>			Invalid parameter passed to function call Ex. func1(a=2) - a is not in declaration
+invalidOperands 						=>			
+invalidArrayReference 						=>			
+invalidOperandsLogEq 						=>			Invalid operands to conditional operator.
+invalidFunctionCallInExpression 				=>			Function returning more than one variable used in an expression (One 1/0 value allowed)
+invalidFunctionCallInAssignment					=>			Function not returning any values (return type VOID) used in assignment statement			
+invalidOperandsUnary						=>			Increment statement allowed only for Integer variables
+invalidSplice							=>						
+invalidAssignment						=>			Unequal number of entities found on both sides of assignment statement		
+invalidAssignmentType 						=>			Mismatch in type of variable and type of value assigned	 
+referencedBeforeDecl						=>			Variable used before declaration in current scope
+missingReturnStmt						=>			Return statement missing in function function that should return values 				
+invalidValueDecl						=>			 	
+arrayIncr 
+spliceError
+invalidArrayUse
+invalidOperandsBot
+variableRedeclaration

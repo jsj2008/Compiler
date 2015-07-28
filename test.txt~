@@ -1,0 +1,15 @@
+Main()
+{
+	int a = 5, d, b, c;
+	a = 23;			@~ a allocated register ~@	
+	b = a;			@~ b, a in same register ~@
+	c = a;			@~ b, a, c in same register ~@
+	c = c+6;
+	d = a;			@~ d, a, b in same register ~@
+	a = a+1;		@~ use INC instead of ADD ~@
+	a = a+0;		@~ IGNORE ~@
+	c = c;			@~ IGNORE ~@
+	a, b = b, a;		@~ b replaces c ~@	
+	d = d + a + b;
+	d, b, a = b, a, d;	@~ swap values in registers using stack ~@
+}

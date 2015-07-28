@@ -1,0 +1,7 @@
+Main()
+{
+	int arr[5][2], barr[5];
+	barr[0] = barr[1] + barr[2];
+	arr[4][1] = 5;
+	barr[0:4] = 4,5, barr[0:2];
+}
